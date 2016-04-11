@@ -6,7 +6,7 @@ var localStore = {
     //
     test : function (id) {
         var v = this.isStorageAvailable('localStorage')
-        console.log("localStore.test:" + v);
+        console.log("localStore.test: " + v);
         if (id) { document.getElementById(id).textContent = v; }
         return v;
     },

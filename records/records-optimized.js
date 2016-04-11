@@ -2,17 +2,6 @@
     Date: 2016-03-07
 
 */
-//
-function toggleFormVisible () {
-    var txtIs = document.getElementById('toggleForm').textContent;
-    var found = txtIs.search(/^show/);
-    var s, t;
-    if (found == -1) {s = 'hide'; t = 'show';} else { s = 'show'; t = 'hide';}
-
-    document.getElementById('toggleForm').textContent = txtIs.replace(s, t);
-    document.getElementById('theAddForm').classList.toggle('hidden');
-}
-//
 function updateScreenTotal (number) {
     document.getElementById('storelocal').textContent = "items:" + number;
 }
@@ -27,8 +16,9 @@ removeKeyCallback = function (e) {
     // Redraw list by clicking the button that draws it.
     visualList.redraw();
 };
-
+//
 updateKeyCallback = function (e) {
+    console.log('updateKey');
     recordItem.update(e, {l:'#_label' , v:'#_value'});
     // Redraw list by clicking the button that draws it.
     visualList.redraw();
@@ -44,6 +34,7 @@ function bindClassOnEvent(theClass, event, theCallback) {
         x[i].addEventListener(event, theCallback);
     }
 }
+//////////////////////////////////////////////////////////////////////
 /*
 
 */
@@ -78,19 +69,18 @@ var visualList = {
         var i = start;
         var k = '', v = '', ddata = [];
         for (i = start; i < end; i++) {
-            // some Javascript engines cannot do this correctly.
+            // some Javascript engines cannot do this.
             // [k,v] = getListItem(i);
             ddata = recordList.getItem(i);
             k = ddata[0];
             v = ddata[1];
             console.log(i + ":" + k + ":" + v);
             //
-            //createListItemVisual(rlist,
             visualList.createItem(appendPoint,
-            {'k':k, 'v':v},
-            {'phLabel':"RSS",'phValue':"URL",
-             'buttonRemove':"remove",'buttonUpdate':"update"}
-            )
+                {'k':k, 'v':v},
+                {'phLabel':"RSS",'phValue':"URL",
+                 'buttonRemove':"remove",'buttonUpdate':"update"}
+            );
         }
     },
     draw : function ( listLen, appendPoint ) {
@@ -179,9 +169,10 @@ var recordItem = {
 
 var formIds = {'key':'key','value':'value'};
 //
-document.getElementById('toggleForm').addEventListener('click', toggleFormVisible);
+/* */
 document.getElementById('clearList').addEventListener('click', recordList.clear);
 document.getElementById('showList').addEventListener('click', recordList.show);
+
 
 if (document.getElementById('setItem')) {
     document.getElementById('setItem').addEventListener('click', recordList.setItem);

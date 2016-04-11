@@ -25,6 +25,7 @@ var app = {
             // hide Exit button. Browser does not exit.
             document.getElementById('exitApp').classList.add("hidden");
         }
+        localStore.test('storeavail');
     }
 };
 
