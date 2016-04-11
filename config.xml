@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+  <widget xmlns = "http://www.w3.org/ns/widgets"
+  xmlns:android   = "http://schemas.android.com/apk/res/android"
+  xmlns:gap   = "http://phonegap.com/ns/1.0"
+  id          = "com.bsdmasterindex.storage-local-firebase"
+  version     = "1.0.0"
+  versionCode = "100" > <!-- versionCode is optional and Android only -->
+  <!-- Tool Set Version -->        
+  <preference name='phonegap-version' value='cli-5.2.0' />
+
+  <name>Storage local/firebase</name>
+  <description>Storage local/firebase</description>
+  <author href="http://bsdmasterindex.com" email="jessemonroy650@yahoo.com">
+  Jesse Monroy
+  </author>
+
+  <!-- Target Platforms -->
+  <!-- Remove to test which platforms build by default. -->
+  <platform name="android" />
+  <platform name="ios" />
+  <platform name="winphone" />
+
+  <!-- App requested permission -->
+  <preference name="permissions" value="none"/>
+
+  <!-- PLUGINS * PLUGINS * PLUGINS -->
+  <plugin name="cordova-plugin-device"        source="npm" spec="1.0.1" />
+
+  <!-- WHITELIST * WHITELIST * WHITELIST -->
+  <!-- https://github.com/jessemonroy650/top-phonegap-mistakes/blob/master/the-whitelist-system.md -->
+  <allow-navigation href="*" />
+  <allow-intent href="*" />
+  <access origin="*" /> <!-- Required for iOS9 -->
+
+  </widget>
